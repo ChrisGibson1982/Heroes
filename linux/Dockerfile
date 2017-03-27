@@ -1,3 +1,7 @@
+#  docker build -t cgfootman/heroes:apache -f linux/Dockerfile .
+#  docker run -d -p 80:80 --name heroesapache cgfootman/heroes:apache
+#  docker push cgfootman/heroes:apache
+
 FROM httpd:2.4
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
 USER root
