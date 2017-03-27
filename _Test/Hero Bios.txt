@@ -1,0 +1,11 @@
+Cloud Ninja is all about Azure and even if you aren't planning to use Azure just yet it's actually a great way to spin up VM's and learn some of the Microsoft core technologies if you haven't got a free server to use for evaluations.
+
+Captain Code is getting to grips with PowerShell which will should give you time back in your day to do more MVA courses rather than clicking on endless dialog boxes to do repetitive tasks.
+
+Dr Desktop will be all over Configuration Manager and In Tune as it's no fun to fiddle with profiles applications on all the devices accessing corporate resources one by one.
+
+RackMan understands how to turn Just a Bunch of |VMs (JBOV) into services that can scale, be costed and provisioned using self service just like a public cloud.
+
+Hypervisor needs to efficiently allocate compute network and storage and provide quality of service to all of those to prevent noisy neighbours hogging resources.
+
+Solid Server understand that while we have all seen Windows Server we haven't seen all of Windows Server , and things like IP Address Management, storage spaces and VDI are all hidden away waiting to be turned on.
