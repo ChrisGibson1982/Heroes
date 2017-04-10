@@ -1,0 +1,9 @@
+C:\git\dotnet\Heroes\Heroes\bin\Release\netcoreapp1.1\Heroes.deps.json
+C:\git\dotnet\Heroes\Heroes\bin\Release\netcoreapp1.1\Heroes.runtimeconfig.json
+C:\git\dotnet\Heroes\Heroes\bin\Release\netcoreapp1.1\Heroes.runtimeconfig.dev.json
+C:\git\dotnet\Heroes\Heroes\bin\Release\netcoreapp1.1\Heroes.dll
+C:\git\dotnet\Heroes\Heroes\bin\Release\netcoreapp1.1\Heroes.pdb
+C:\git\dotnet\Heroes\Heroes\obj\Release\netcoreapp1.1\Heroes.csprojResolveAssemblyReference.cache
+C:\git\dotnet\Heroes\Heroes\obj\Release\netcoreapp1.1\Heroes.AssemblyInfo.cs
+C:\git\dotnet\Heroes\Heroes\obj\Release\netcoreapp1.1\Heroes.dll
+C:\git\dotnet\Heroes\Heroes\obj\Release\netcoreapp1.1\Heroes.pdb
