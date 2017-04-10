@@ -2,15 +2,15 @@
 #  docker run -d -p 80:80 --name heroesapache cgfootman/heroes:apache
 #  docker push cgfootman/heroes:apache
 
-FROM httpd:2.4
+
+
+FROM ubuntu:16.04
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
-USER root
+RUN apt-get update && apt-get install -y openssh-server apache2 supervisor
+RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
+COPY linux/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY Site/ /var/www/html/
+EXPOSE 22 80
+CMD ["/usr/bin/supervisord"]
 
-# COPY ./public-html/ /usr/local/apache2/htdocs/
-COPY Site/ /var/www/
 
-EXPOSE 80
-
-
-CMD ["-D", "FOREGROUND"]
-ENTRYPOINT ["/usr/sbin/httpd"]
