@@ -1,17 +1,12 @@
-#  docker build -t cgfootman/heroes:apache -f linux/Dockerfile .
-#  docker run -d -p 80:80 --name heroesapache cgfootman/heroes:apache
-#  docker push cgfootman/heroes:apache
+#  docker build -t cgfootman/heroes:alpine -f linux/Dockerfile .
+#  docker run -d -p 80:80 --name heroesapache cgfootman/heroes:alpine
+#  docker push cgfootman/heroes:alpine
 
-FROM httpd:2.4
+From nginx:alpine
+
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
-USER root
 
-# COPY ./public-html/ /usr/local/apache2/htdocs/
-COPY Site/ /var/www/
-RUN mkdir /usr/sbin/httpd
+Copy /Site /usr/share/nginx/html
 
 EXPOSE 80
 
-
-CMD ["-D", "FOREGROUND"]
-ENTRYPOINT ["/usr/sbin/httpd"]
