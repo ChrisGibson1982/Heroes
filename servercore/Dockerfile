@@ -3,9 +3,11 @@
 #  docker run -d -p 80:80 --name heroescore cgfootman/heroes:core
 #  docker push cgfootman/heroes:core
 
-FROM microsoft/aspnet
+FROM microsoft/windowsservercore-insider
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+RUN Install-WindowsFeature NET-Framework-45-ASPNET ; Install-WindowsFeature Web-Asp-Net45
 
 RUN Remove-Website 'Default Web Site';
 
