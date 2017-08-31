@@ -15,7 +15,7 @@ RUN dism.exe /online /add-package /packagepath:c:\install\Microsoft-NanoServer-I
     rd /s /q c:\install
 
 
-ADD Site/ /inetpub/wwwroot/
+ONBUILD ADD Site/ /inetpub/wwwroot/
 
 EXPOSE 80
 

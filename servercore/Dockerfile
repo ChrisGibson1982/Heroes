@@ -20,7 +20,7 @@ RUN powershell -NoProfile -Command \
     New-IISSite -Name "Heroes" -PhysicalPath C:\site -BindingInformation "*:80:"
 
 EXPOSE 80
-ADD Site/ /site
+ONBUILD ADD Site/ /site
 
 
 
