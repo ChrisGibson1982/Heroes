@@ -4,21 +4,16 @@ def PowerShell(psCmd) {
  
 node {
     stage('git checkout') {
-        git 'file:///C:/Projects/SsdtDevOpsDemo'
+        git 'file:///C:/Projects/Heroes'
     }
  
     stage('build dacpac') {
-        bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
-        stash includes: 'SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac', name: 'theDacpac'
+        bat "docker build -t cgfootman/heroes:nano -f nanoserver/Dockerfile ."
+        
     }
  
     stage('start container') {
-        sh 'docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssword1" --name SQLLinuxLocal -d -i -p 15566:1433 microsoft/mssql-server-linux'
-    }
- 
-    stage('deploy dacpac') {
-        unstash 'theDacpac'
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac\" /TargetConnectionString:\"server=localhost,15566;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "docker run -d -p 80:80 --name heroesnano cgfootman/heroes:nano"  
     }
  
     stage('run tests') {
@@ -26,7 +21,7 @@ node {
     }
  
     stage('cleanup') {
-        sh 'docker stop SQLLinuxLocal'
-        sh 'docker rm SQLLinuxLocal'
+    bat "docker stop heroesnano"
+    
     }
 }
