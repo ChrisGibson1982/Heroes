@@ -7,17 +7,13 @@ node {
         git 'file:///C:/Projects/Heroes'
     }
  
-    stage('build dacpac') {
+    stage('build') {
         bat "docker build -t cgfootman/heroes:nano -f nanoserver/Dockerfile ."
         
     }
  
     stage('start container') {
         bat "docker run -d -p 80:80 --name heroesnano cgfootman/heroes:nano"  
-    }
- 
-    stage('run tests') {
-        PowerShell('Start-Sleep -s 5')
     }
  
     stage('cleanup') {
