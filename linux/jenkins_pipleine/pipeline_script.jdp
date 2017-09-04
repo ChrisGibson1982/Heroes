@@ -1,0 +1,32 @@
+def PowerShell(psCmd) {
+    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
+}
+ 
+node {
+    stage('git checkout') {
+        git 'file:///C:/Projects/SsdtDevOpsDemo'
+    }
+ 
+    stage('build dacpac') {
+        bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
+        stash includes: 'SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac', name: 'theDacpac'
+    }
+ 
+    stage('start container') {
+        sh 'docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssword1" --name SQLLinuxLocal -d -i -p 15566:1433 microsoft/mssql-server-linux'
+    }
+ 
+    stage('deploy dacpac') {
+        unstash 'theDacpac'
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SsdtDevOpsDemo\\bin\\Release\\SsdtDevOpsDemo.dacpac\" /TargetConnectionString:\"server=localhost,15566;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+    }
+ 
+    stage('run tests') {
+        PowerShell('Start-Sleep -s 5')
+    }
+ 
+    stage('cleanup') {
+        sh 'docker stop SQLLinuxLocal'
+        sh 'docker rm SQLLinuxLocal'
+    }
+}
