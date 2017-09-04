@@ -3,7 +3,7 @@
 #  docker run -d -p 80:80 --name heroescore cgfootman/heroes:core
 #  docker push cgfootman/heroes:core
 
-FROM microsoft/windowsservercore-insider
+FROM microsoft/windowsservercore
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
