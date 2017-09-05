@@ -13,7 +13,7 @@ RUN Remove-Website 'Default Web Site';
 
 
 RUN mkdir C:\site
-# RUN Enable-WindowsOptionalFeature -Online -FeatureName Install-WindowsFeature WEB-ASP,Web-Asp-Net45 
+
 
 RUN powershell -NoProfile -Command \
     Import-module IISAdministration; \
