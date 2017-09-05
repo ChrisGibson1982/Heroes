@@ -7,20 +7,22 @@ FROM microsoft/windowsservercore
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Install-WindowsFeature NET-Framework-45-ASPNET ; Install-WindowsFeature Web-Asp-Net45
+RUN powershell -Command Add-WindowsFeature Web-Server
 
 RUN Remove-Website 'Default Web Site';
 
-
 RUN mkdir C:\site
-
 
 RUN powershell -NoProfile -Command \
     Import-module IISAdministration; \
     New-IISSite -Name "Heroes" -PhysicalPath C:\site -BindingInformation "*:80:"
 
-EXPOSE 80
 ADD Site/ /site
+ADD ServiceMonitor.exe /ServiceMonitor.exe
+
+EXPOSE 80
+
+ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
 
 
 
