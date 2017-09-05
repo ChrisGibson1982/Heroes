@@ -9,6 +9,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 ADD servercore/install/ServiceMonitor.exe /ServiceMonitor.exe
 
+
 RUN powershell -Command Add-WindowsFeature Web-Server
 
 RUN Remove-Website 'Default Web Site';
@@ -20,7 +21,6 @@ RUN powershell -NoProfile -Command \
     New-IISSite -Name "Heroes" -PhysicalPath C:\site -BindingInformation "*:80:"
 
 ADD Site/ /site
-ADD ServiceMonitor.exe /ServiceMonitor.exe
 
 EXPOSE 80
 
