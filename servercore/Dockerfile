@@ -7,6 +7,8 @@ FROM microsoft/windowsservercore
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
+ADD servercore/install/ServiceMonitor.exe /ServiceMonitor.exe
+
 RUN powershell -Command Add-WindowsFeature Web-Server
 
 RUN Remove-Website 'Default Web Site';
