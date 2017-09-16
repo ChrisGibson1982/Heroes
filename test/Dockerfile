@@ -1,4 +1,4 @@
-#  docker build -t cgfootman/heroes:test -f test/Dockerfile .
+#  docker build -rm -t cgfootman/heroes:test -f test/Dockerfile .
 #  docker run -d -p80:80  --name heroestest cgfootman/heroes:test
 #  docker push cgfootman/heroes:test
 

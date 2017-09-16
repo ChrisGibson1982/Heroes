@@ -1,5 +1,5 @@
 
-#  docker build -t cgfootman/heroes:core -f servercore/Dockerfile .
+#  docker build -rm -t cgfootman/heroes:core -f servercore/Dockerfile .
 #  docker run -d -p 80:80 --name heroescore cgfootman/heroes:core
 #  docker push cgfootman/heroes:core
 

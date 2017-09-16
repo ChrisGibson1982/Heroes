@@ -1,5 +1,5 @@
 
-#  docker build -t cgfootman/heroes:nano -f nanoserver/Dockerfile .
+#  docker build -rm -t cgfootman/heroes:nano -f nanoserver/Dockerfile .
 #  docker run -d -p 80:80 --name heroesnano cgfootman/heroes:nano  
 #  docker push cgfootman/heroes:nano
 
