@@ -1,7 +1,7 @@
 
 #  docker build -rm -t cgfootman/heroes:core -f servercore/Dockerfile .
 #  docker run -d -p 80:80 --name heroescore cgfootman/heroes:core
-#  docker push cgfootman/heroes:core
+#   docker push cgfootman/heroes:core
 
 FROM microsoft/windowsservercore
 MAINTAINER Chris Gibson <cgfootman@hotmail.com>
