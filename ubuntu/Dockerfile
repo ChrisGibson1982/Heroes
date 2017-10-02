@@ -1,3 +1,7 @@
+#  docker build -rm -t cgfootman/heroes:ubuntu -f ubuntu/Dockerfile .
+#  docker run -d -p 80:80 --name heroesubuntu cgfootman/heroes:ubuntu 
+#  docker push cgfootman/heroes:ubuntu 
+
 FROM ubuntu: 16.04 
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
