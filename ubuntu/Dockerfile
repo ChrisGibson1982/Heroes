@@ -1,3 +1,4 @@
+#
 #  docker build -t cgfootman/heroes:ubuntu -f ubuntu/Dockerfile .
 #  docker run -d -p 80:80 --name heroesubuntu cgfootman/heroes:ubuntu 
 #  docker push cgfootman/heroes:ubuntu 
@@ -18,5 +19,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 CMD ["nginx", "-g", "daemon off;"]
+
 
 
