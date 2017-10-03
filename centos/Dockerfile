@@ -7,6 +7,9 @@ FROM centos:latest
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
 EXPOSE 80
+
+RUN adduser user && echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && chmod 0440 /etc/sudoers.d/user
+
 RUN yum -y update && \
     yum -y install epel-release && \
     yum -y install nginx git logrotate && \
@@ -19,4 +22,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+
+CMD "su", "-", ["nginx", "-g", "daemon off;"]
+
