@@ -8,7 +8,7 @@ MAINTAINER Chris Gibson "cgfootman@hotmail.com"
 
 EXPOSE 80
 
-RUN adduser hero && echo "hero ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/hero && chmod 0440 /etc/sudoers.d/hero
+RUN adduser hero && usermod -aG wheel hero
 
 RUN yum -y update && \
     yum -y install epel-release && \
@@ -22,7 +22,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
 
-# CMD "su", "-", ["nginx", "-g", "daemon off;"]
+CMD "su", "-", "hero" ["nginx", "-g", "daemon off;"]
 
