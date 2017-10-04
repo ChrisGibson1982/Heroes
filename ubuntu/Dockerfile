@@ -1,4 +1,3 @@
-#
 #  docker build -t cgfootman/heroes:ubuntu -f ubuntu/Dockerfile .
 #  docker run -d -p 80:80 --name heroesubuntu cgfootman/heroes:ubuntu 
 #  docker push cgfootman/heroes:ubuntu 
