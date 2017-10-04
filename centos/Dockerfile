@@ -24,5 +24,5 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 # CMD ["nginx", "-g", "daemon off;"]
 
-CMD ["su", "-", "hero", "nginx", "-g", "daemon off;"]
+CMD ["su", "-", "hero", "-c", "nginx", "-g", "daemon off;"]
 
