@@ -5,6 +5,8 @@
 FROM registry.access.redhat.com/dotnet/dotnet-20-rhel7
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
+USER root
+
 EXPOSE 80
 
 RUN yum -y update && \
