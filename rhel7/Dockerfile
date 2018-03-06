@@ -1,8 +1,8 @@
-#  docker build -t cgfootman/heroes:rhel7 -f ubuntu/Dockerfile .
+#  docker build -t cgfootman/heroes:rhel7 -f rhel7/Dockerfile .
 #  docker run -d -p 80:80 --name heroesrhel7 cgfootman/heroes:rhel7
 #  docker push cgfootman/heroes:rhel7
 
-FROM registry.access.redhat.com/openshift3/nodejs-010-rhel7
+FROM registry.access.redhat.com/dotnet/dotnet-20-rhel7
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
 RUN yum install epel-release
