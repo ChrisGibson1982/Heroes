@@ -5,8 +5,8 @@
 FROM registry.access.redhat.com/dotnet/dotnet-20-rhel7
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
-RUN sudo yum install epel-release
-RUN sudo yum install nginx
+RUN su yum install epel-release
+RUN su yum install nginx
 RUN mkdir -p /var/www/html 
 ADD rhel7/nginx/global.conf /etc/nginx/conf.d/ 
 ADD rhel7/nginx/nginx.conf /etc/nginx/nginx.conf 
