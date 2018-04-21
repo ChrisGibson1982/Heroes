@@ -5,7 +5,7 @@
 
 
 FROM centos:latest
-MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
+LABEL maintainer="cgfootman@hotmail.com" 
 
 EXPOSE 80
 
@@ -17,7 +17,7 @@ RUN yum -y update && \
 ADD centos/nginx/global.conf /etc/nginx/conf.d/ 
 ADD centos/nginx/nginx.conf /etc/nginx/nginx.conf 
 
-Add Site/  /var/www/html/website
+ADD Site/  /var/www/html/website
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
