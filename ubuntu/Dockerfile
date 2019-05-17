@@ -2,7 +2,7 @@
 #  docker run -d -p 80:80 --name heroesubuntu cgfootman/heroes:ubuntu 
 #  docker push cgfootman/heroes:ubuntu 
 
-FROM ubuntu:16.04 
+FROM ubuntu:latest 
 MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
 
 RUN apt-get -y -q update && apt-get -y -q install nginx 
