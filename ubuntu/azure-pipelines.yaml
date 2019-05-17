@@ -1,0 +1,6 @@
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker-CGFootman'
+    repository: 'cgfootman/heroes'
+    command: 'build'
+    Dockerfile: '**/ubuntu/Dockerfile'
