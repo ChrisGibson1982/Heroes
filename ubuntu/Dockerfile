@@ -3,7 +3,7 @@
 #  docker push cgfootman/heroes:ubuntu 
 
 FROM ubuntu:latest 
-MAINTAINER Chris Gibson "cgfootman@hotmail.com" 
+LABEL maintainer="cgfootman@hotmail.com"
 
 RUN apt-get -y -q update && apt-get -y -q install nginx 
 RUN mkdir -p /var/www/html 
