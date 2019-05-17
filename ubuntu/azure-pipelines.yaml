@@ -10,11 +10,11 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '{{ containerRegistryConnection.Id }}'
-  imageRepository: '{{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}}'
-  containerRegistry: '{{ containerRegistryConnection.Authorization.Parameters.loginServer }}'
-  dockerfilePath: '{{ dockerfilePath }}'
-  tag: '$(Build.BuildId)'
+  dockerRegistryServiceConnection: 'Docker-CGFootman'
+  imageRepository: 'cgfootman/heroes'
+  containerRegistry: 'Docker-CGFootman'
+  dockerfilePath: 'ubuntu/Dockerfile'
+  tag: 'azdoPipeline'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
