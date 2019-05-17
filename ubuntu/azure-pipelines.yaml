@@ -1,3 +1,10 @@
+stages:
+    - stage: build
+    jobs:
+    - job:
+    pool:
+    vmImange:''
+
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker-CGFootman'
